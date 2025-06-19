@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seviyorum Seni</title>
+  <style>
+    body {
+      background-color: #f5e6ff;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 20px;
+      color: #4b0082;
+    }
+    .mektup {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      max-width: 700px;
+      margin: auto;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .el-yazisi {
+      font-family: 'Lucida Handwriting', cursive;
+      font-size: 24px;
+      color: #800080;
+    }
+    .surpriz-btn, .cevap-btn {
+      background-color: #a64ca6;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: transform 0.3s;
+    }
+    .surpriz-btn:hover, .cevap-btn:hover {
+      transform: scale(1.1);
+    }
+    .cicekler {
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .emoji {
+      font-size: 30px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>  <div class="mektup">
+    <div style="text-align: left; font-family: 'Georgia', serif; color: #4b0082;">
+      <p><strong>Canım Annem, Kalbimin Neşesi,</strong></p>
+      <p>Sıcaklığın sarar her anımı,<br>
+      Gülüşünle aydınlanır dünyam.<br>
+      Ellerin şefkatle dokunur bana,<br>
+      Varlığınla her dert unutulur.</p>
+      <p>Yüreğin denizler kadar engin,<br>
+      Sevgin en değerli mücevherim.<br>
+      Her bakışın umut, her sözün teselli,<br>
+      Seninle her zorluk kolaylaşır.</p>
+      <p>Yıllar geçse de sevgin eksilmez,<br>
+      Hep yanımdasın, hiç gitmezsin.<br>
+      Annem, canım, benim tek gerçeğim,<br>
+      Sana minnettarım, her şeyim.</p>
+      <p><strong>Seni çok seviyorum canım annem.<br>
+      Var ol hep başucumda, kalbimde.</strong></p>
+    </div><button class="surpriz-btn" onclick="gosterCicek()">🎁 Sürpriz için tıkla</button>
+
+<div class="cicekler" id="cicekler">
+  <div class="emoji">💜🌺🌷🌸💜🌼🌻💐💜</div>
+  <p class="el-yazisi">Beni seviyor musun?</p>
+  <button class="cevap-btn" onclick="evetSecildi()">Evet 💜</button>
+  <button class="cevap-btn" id="hayirBtn" onclick="hayirTiklandi()">Hayır ❌</button>
+  <p id="mesaj" class="el-yazisi"></p>
+</div>
+
+  </div>  <script>
+    let hayirSayac = 0;
+    const hayirBtn = document.getElementById("hayirBtn");
+    const mesaj = document.getElementById("mesaj");
+
+    function gosterCicek() {
+      document.getElementById("cicekler").style.display = "block";
+    }
+
+    function evetSecildi() {
+      mesaj.innerHTML = "💜 <span class='el-yazisi'>Arel 27.10.13 & Asel 14.05.24</span> 💜";
+    }
+
+    function hayirTiklandi() {
+      hayirSayac++;
+      const yanitlar = [
+        "Emin misin? 😢",
+        "Gerçekten mi? 💔",
+        "Bir daha düşün... 🙁",
+        "Kalbim kırılıyor... 😞",
+        "Üzgünüm... 💔"
+      ];
+      if (hayirSayac < 5) {
+        mesaj.textContent = yanitlar[hayirSayac - 1] || "";
+      } else {
+        hayirBtn.style.transform = "scale(0.1)";
+        setTimeout(() => hayirBtn.remove(), 300);
+        mesaj.textContent = "Peki... 💔";
+      }
+    }
+  </script></body>
+</html>
